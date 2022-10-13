@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "security.externalAuthServerUrl",
+      "type": "java.lang.String",
+      "description": "External authorization url of Keycloak e.g. https://$host:$port/auth",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.internalAuthServerUrl",
+      "type": "java.lang.String",
+      "description": "Internal authorization url of Keycloak e.g. https://$host:$port/auth",
+      "defaultValue": ""
+    },
+    {
+      "name": "security.realm",
+      "type": "java.lang.String",
+      "description": "Realm which service should use e.g. 'timate'",
+      "defaultValue": "timate"
+    },
+    {
+      "name": "security.clientId",
+      "type": "java.lang.String",
+      "description": "Client which service should use e.g. 'timate_core-service'",
+      "defaultValue": "timate_core-service"
+    },
+    {
+      "name": "security.issuers",
+      "type": "java.util.List<java.lang.String>",
+      "description": "Allowed token issuers e.g. 'https://$host:$port/auth'",
+      "defaultValue": "[]"
+    }
+  ]
+}

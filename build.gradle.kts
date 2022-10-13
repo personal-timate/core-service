@@ -17,13 +17,27 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	/* Security */
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.7.3")
+	implementation("org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-client:2.7.4")
+
+	/* Database(s) */
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+
+	/* API */
 	implementation("org.springframework.boot:spring-boot-starter-web")
+
+	/* Object Mapping */
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+	/* General */
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+
+	/* Testing */
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 }
