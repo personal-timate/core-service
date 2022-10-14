@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne
 
 
 /**
- * @author Nicholas Dietz @ USU GmbH
+ * @author Nicholas Dietz @ Timate
  **/
 @Table("TASKS")
 data class TaskEntity(

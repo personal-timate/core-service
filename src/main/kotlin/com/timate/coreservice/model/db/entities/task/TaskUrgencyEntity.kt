@@ -7,7 +7,7 @@ import javax.persistence.GenerationType
 
 
 /**
- * @author Nicholas Dietz @ USU GmbH
+ * @author Nicholas Dietz @ Timate
  **/
 @Table("TASK_URGENCY")
 data class TaskUrgencyEntity(

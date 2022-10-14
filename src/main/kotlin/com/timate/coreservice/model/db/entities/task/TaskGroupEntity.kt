@@ -10,7 +10,7 @@ import javax.persistence.OneToMany
 
 
 /**
- * @author Nicholas Dietz @ USU GmbH
+ * @author Nicholas Dietz @ Timate
  **/
 @Table("TASK_GROUP")
 data class TaskGroupEntity(

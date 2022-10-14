@@ -8,7 +8,7 @@ import javax.persistence.GenerationType
 
 
 /**
- * @author Nicholas Dietz @ USU GmbH
+ * @author Nicholas Dietz @ Timate
  **/
 @Table("TASK_EISENHAUER_TYPE")
 data class TaskEisenhauerTypeEntity(

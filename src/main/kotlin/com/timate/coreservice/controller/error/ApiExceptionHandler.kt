@@ -13,7 +13,7 @@ import java.net.ConnectException
 import java.util.*
 
 /**
- * @author Nicholas Dietz @ USU GmbH
+ * @author Nicholas Dietz
  **/
 @ControllerAdvice
 class ApiExceptionHandler : ResponseEntityExceptionHandler() {
