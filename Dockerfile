@@ -7,7 +7,7 @@ COPY src/ src/
 RUN gradle --no-daemon build --stacktrace -x test
 
 
-FROM gcr.io/distroless/java:17
+FROM gcr.io/distroless/java17-debian11
 
 WORKDIR /timate
 COPY --from=builder /app/build/libs/*.jar ./app.jar
