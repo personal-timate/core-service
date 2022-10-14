@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.jwt.Jwt
 
 
 /**
- * @author Nicholas Dietz @ USU GmbH
+ * @author Nicholas Dietz
  **/
 class JwtMultiIssuerValidator(private val issuers: List<String>): OAuth2TokenValidator<Jwt> {
 
