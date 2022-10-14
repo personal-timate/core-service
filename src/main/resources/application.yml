@@ -3,3 +3,61 @@ security:
     - "http:localhost:3005"
   internalAuthServerUrl: "http:localhost:3005"
   externalAuthServerUrl: "http:localhost:3005"
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: timate-core-service
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://docker-machine:3306/timate
+    username: timate
+    password: timate
+  liquibase:
+    url: jdbc:mariadb://docker-machine:3306/timate
+    user: timate
+    password: timate
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    operations-sorter: method
+    oauth:
+      clientId: swagger
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+logbook:
+  exclude:
+    - "/actuator/**"
+
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+logging:
+  level:
+    com:
+      timate:
+        coreservice: INFO
+    org:
+      springframework:
+        #        cache: TRACE
+        boot:
+          autoconfigure: INFO
+    web: INFO
+    org.springframework:
+      security: INFO
+    org.zalando:
+      logbook: INFO
