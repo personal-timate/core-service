@@ -1,8 +1,8 @@
 security:
   issuers:
-    - "http:localhost:3005"
-  internalAuthServerUrl: "http:localhost:3005"
-  externalAuthServerUrl: "http:localhost:3005"
+    - "http://localhost:3005"
+  internalAuthServerUrl: "http://localhost:3005"
+  externalAuthServerUrl: "http://localhost:3005"
 
 spring:
   servlet:

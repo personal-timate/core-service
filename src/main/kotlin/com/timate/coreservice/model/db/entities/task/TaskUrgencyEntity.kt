@@ -1,4 +1,4 @@
-package com.timate.coreservice.model.entities
+package com.timate.coreservice.model.db.entities.task
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
@@ -9,14 +9,14 @@ import javax.persistence.GenerationType
 /**
  * @author Nicholas Dietz @ USU GmbH
  **/
-@Table("TASK_IMPACT")
-data class TaskImpactEntity(
+@Table("TASK_URGENCY")
+data class TaskUrgencyEntity(
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     val id: Long,
 
-    val impact: String,
+    val urgency: String,
 
     val description: String?
 )

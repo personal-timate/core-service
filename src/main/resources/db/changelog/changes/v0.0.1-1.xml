@@ -14,6 +14,9 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" unique="false"/>
             </column>
+            <column name="grouped" type="boolean" defaultValueBoolean="false">
+                <constraints nullable="false" unique="false"/>
+            </column>
             <column name="TASK_EISENHAUER_TYPE_id" type="smallint"/>
             <column name="TASK_IMPACT_id" type="smallint"/>
             <column name="TASK_URGENCY_id" type="smallint"/>
@@ -48,6 +51,28 @@
                 <constraints nullable="false" unique="true"/>
             </column>
         </createTable>
+
+        <addForeignKeyConstraint
+                constraintName="fk_task_urgency_tasks"
+                baseTableName="TASKS"
+                baseColumnNames="TASK_URGENCY_id"
+                referencedTableName="TASK_URGENCY"
+                referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint
+                constraintName="fk_task_impact_tasks"
+                baseTableName="TASKS"
+                baseColumnNames="TASK_IMPACT_id"
+                referencedTableName="TASK_IMPACT"
+                referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint
+                constraintName="fk_task_eisenhauer_type_tasks"
+                baseTableName="TASKS"
+                baseColumnNames="TASK_EISENHAUER_TYPE_id"
+                referencedTableName="TASK_EISENHAUER_TYPE"
+                referencedColumnNames="id"
+        />
     </changeSet>
 
 </databaseChangeLog>
