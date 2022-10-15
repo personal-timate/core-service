@@ -1,5 +1,6 @@
 package com.timate.coreservice.controller.error
 
+import com.timate.coreservice.errors.CacheClearingFailed
 import com.timate.coreservice.errors.PermissionDenied
 import com.timate.coreservice.model.error.ApiErrorResponse
 import com.timate.coreservice.model.error.ApiErrorResponse.Companion.toApiErrorResponse
@@ -42,6 +43,15 @@ class ApiExceptionHandler : ResponseEntityExceptionHandler() {
     protected fun handleUnknownErrors(ex: Exception): ResponseEntity<ApiErrorResponse> {
         val uuid = UUID.randomUUID().toString()
         logger.error("Unknown error occurred. stackTraceId: $uuid", ex)
+        return ex.toApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, uuid)
+    }
+
+    @ExceptionHandler(
+        CacheClearingFailed::class
+    )
+    protected fun handleClearingCacheExceptions(ex: Exception): ResponseEntity<ApiErrorResponse> {
+        val uuid = UUID.randomUUID().toString()
+        logger.error("Failed to clear cache(s). StackTraceId: $uuid", ex)
         return ex.toApiErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, uuid)
     }
 

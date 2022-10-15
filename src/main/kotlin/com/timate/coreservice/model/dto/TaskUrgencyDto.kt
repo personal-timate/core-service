@@ -11,7 +11,7 @@ data class TaskUrgencyDto(
     companion object {
         fun fromEntity(entity: TaskUrgencyEntity): TaskUrgencyDto {
             return TaskUrgencyDto(
-                id = entity.id,
+                id = entity.id!!,
                 urgency = entity.urgency,
                 description = entity.description.orEmpty()
             )

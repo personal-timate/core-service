@@ -5,6 +5,12 @@ security:
   externalAuthServerUrl: "http://localhost:3005"
 
 spring:
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+      enable-statistics: true
+
   servlet:
     multipart:
       max-file-size: 5MB
@@ -13,6 +19,9 @@ spring:
     allow-bean-definition-overriding: true
   application:
     name: timate-core-service
+  jpa:
+    hibernate:
+      ddl-auto: update
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://docker-machine:3306/timate
@@ -22,6 +31,8 @@ spring:
     url: jdbc:mariadb://docker-machine:3306/timate
     user: timate
     password: timate
+  redis:
+    host: docker-machine
 
 springdoc:
   show-actuator: true

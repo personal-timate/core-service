@@ -4,9 +4,11 @@ import com.timate.coreservice.constants.ApiVersion
 import com.timate.coreservice.model.dto.*
 import com.timate.coreservice.services.base.task.TaskBaseService
 import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -33,6 +35,16 @@ class TaskController(
     @GetMapping("/types", produces = ["application/hal+json"])
     fun getAllTaskTypes(): ResponseEntity<ListResponse<TaskTypeDto>> {
         return taskBaseService.getAllTaskTypes().buildResponse()
+    }
+
+    @Operation(summary = "Get all tasks by user.")
+    @GetMapping("/{userId}", produces = ["application/hal+json"])
+    fun getAlltasksByUser(
+        @Parameter(description = "Id of realm.")
+        @PathVariable("userId")
+        userId: String,
+    ): ResponseEntity<ListResponse<TaskDto>> {
+        return taskBaseService.getAlltasks(userId).buildResponse()
     }
 
 }

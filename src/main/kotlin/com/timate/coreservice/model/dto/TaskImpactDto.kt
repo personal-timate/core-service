@@ -11,7 +11,7 @@ data class TaskImpactDto(
     companion object {
         fun fromEntity(entity: TaskImpactEntity): TaskImpactDto {
             return TaskImpactDto(
-                id = entity.id,
+                id = entity.id!!,
                 impact = entity.impact,
                 description = entity.description.orEmpty()
             )

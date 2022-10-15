@@ -1,18 +1,17 @@
 package com.timate.coreservice.model.dto
 
-import com.timate.coreservice.model.db.entities.task.TaskEisenhauerTypeEntity
-import com.timate.coreservice.model.general.TaskEisenhauerType
+import com.timate.coreservice.model.db.entities.task.TaskTypeEntity
 
 data class TaskTypeDto(
     val id: Long,
-    val type: TaskEisenhauerType,
+    val type: String,
     val description: String? = null
 ) {
 
     companion object {
-        fun fromEntity(entity: TaskEisenhauerTypeEntity): TaskTypeDto {
+        fun fromEntity(entity: TaskTypeEntity): TaskTypeDto {
             return TaskTypeDto(
-                id = entity.id,
+                id = entity.id!!,
                 type = entity.type
             )
         }

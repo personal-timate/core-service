@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Timate Core Service</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <style>
+        body {
+            font: normal 15px Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Timate Core Service is Up & Running</h1>
+    <p>Version: <a th:text="${version}"></a></p>
+    <hr>
+</div>
+<p>
+    You can use:
+<ul>
+    <li>
+        <a href="swagger-ui.html" target="_blank">Swagger UI</a> - to discover REST API
+    </li>
+    <li>
+        <a target="_blank" th:href="${externalAuthServerUrl}">Keycloak</a> - to discover users & permissions
+    </li>
+    <li>
+        <a href="actuator" target="_blank">Actuator</a> - to check health & metrics
+    </li>
+</ul>
+<p>Inspect <a href="https://github.com/personal-timate/core-service" rel="noopener noreferrer" target="_blank">sources</a> on GitHub. Having troubles? Open <a href="https://github.com/personal-timate/core-service/issues" rel="noopener noreferrer" target="_blank">a issue</a>.</p>
+<p>
+</body>
+</html>

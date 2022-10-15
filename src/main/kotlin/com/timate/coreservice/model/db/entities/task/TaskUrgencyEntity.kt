@@ -1,22 +1,23 @@
 package com.timate.coreservice.model.db.entities.task
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
+import javax.persistence.*
 
 
 /**
  * @author Nicholas Dietz @ Timate
  **/
-@Table("TASK_URGENCY")
-data class TaskUrgencyEntity(
+@Entity(name = "task_urgency")
+@Table(name = "task_urgency")
+class TaskUrgencyEntity(
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    val id: Long,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
 
+    @Column(name = "urgency", nullable = false)
     val urgency: String,
 
-    val description: String?
+    @Column(name = "description", nullable = true)
+    val description: String? = null
+
 )

@@ -1,33 +1,43 @@
 package com.timate.coreservice.model.db.entities.task
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
-import javax.persistence.CascadeType
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.ManyToOne
+import com.timate.coreservice.model.db.entities.goal.GoalEntity
+import com.timate.coreservice.model.db.entities.project.ProjectEntity
+import javax.persistence.*
 
 
 /**
  * @author Nicholas Dietz @ Timate
  **/
-@Table("TASKS")
-data class TaskEntity(
+@Entity(name = "tasks")
+@Table(name = "tasks")
+class TaskEntity(
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    val id: Long,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
 
+    @Column(name = "name", nullable = false)
     val name: String,
 
-    val grouped: Boolean = false,
+    @Column(name = "major", nullable = false)
+    val major: Boolean = false,
 
-    @ManyToOne(cascade = [CascadeType.ALL])
-    val type: TaskEisenhauerTypeEntity,
+    @OneToMany(cascade = [CascadeType.MERGE], fetch = FetchType.LAZY)
+    var subtasks: List<TaskEntity> = emptyList(),
 
-    @ManyToOne(cascade = [CascadeType.ALL])
+    @ManyToOne(cascade = [CascadeType.MERGE], fetch = FetchType.LAZY)
+    val type: TaskTypeEntity,
+
+    @ManyToOne(cascade = [CascadeType.MERGE], fetch = FetchType.LAZY)
     val urgency: TaskUrgencyEntity,
 
-    @ManyToOne(cascade = [CascadeType.ALL])
+    @ManyToOne(cascade = [CascadeType.MERGE], fetch = FetchType.LAZY)
     val impact: TaskImpactEntity,
+
+    @ManyToOne(cascade = [CascadeType.MERGE], fetch = FetchType.LAZY)
+    val project: ProjectEntity,
+
+    @ManyToMany(cascade = [CascadeType.MERGE], fetch = FetchType.LAZY)
+    val linkedGoals: List<GoalEntity> = emptyList()
+
 )
